@@ -22,7 +22,7 @@ pub fn jump_direction_is_stable<'a>(original_direction: &'a bool, curr_direction
     original_direction == curr_direction
 }
 
-pub fn parse_line_to_int_vec(line: &str) -> Vec<i16> {
+pub fn parse_line(line: &str) -> Vec<i16> {
     let mut int_vec = Vec::<i16>::new();
     let split_line = line.split_whitespace();
     for item in split_line {
@@ -64,7 +64,7 @@ pub fn run_parse_and_test(file: &str) -> i16 {
 
     let lines: Vec<&str> = parse_lines(file);
     for line in lines {
-        if is_safe_line(&parse_line_to_int_vec(line)) {
+        if is_safe_line(&parse_line(line)) {
             result_counter += 1;
         }
     }
@@ -161,7 +161,7 @@ mod tests {
         let line = "41 44 45 48 49 50 50";
         let parsed_line: Vec<i16> = vec![41, 44, 45, 48, 49, 50, 50];
 
-        assert_eq!(parsed_line, parse_line_to_int_vec(&line));
+        assert_eq!(parsed_line, parse_line(&line));
     }
 
     #[test]
