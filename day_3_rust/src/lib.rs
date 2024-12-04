@@ -1,7 +1,7 @@
 use std::io;
 
 pub fn tests_for_mul(mul_slice: &str) -> bool {
-    true
+    mul_slice == "mul("
 }
 
 pub fn factors_from_sequence(sequence: &str) -> io::Result<Factors> {
@@ -121,7 +121,7 @@ mod tests {
 
     #[test]
     fn parses_complex_string() {
-        let complex_str = "fdaed&^#%$mut(123,456))(()mu())mut()--mut(23,4(--mut(55,555)--*";
+        let complex_str = "fdaed&^#%$mul(123,456))(()mul())mut()--mul(23,4(--mul(55,555)--*";
         let product_sum = 86613;
         
         assert_eq!(product_sum, run_parse(&complex_str));
