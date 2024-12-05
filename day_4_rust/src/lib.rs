@@ -83,9 +83,9 @@ pub fn run_traversal(coords: &Coordinates, matrix: &Vec<Vec<char>>) -> i32 {
     let mut count = 0;
 
     let can_up = coords.row > 2;
-    let can_down = coords.row < (matrix.len() - 4);
+    let can_down = coords.row < (matrix.len() - 3);
     let can_back = coords.col > 2;
-    let can_for = coords.col < (matrix[0].len() - 4);
+    let can_for = coords.col < (matrix[0].len() - 3);
 
     if can_up == true {
         if can_back == true {
