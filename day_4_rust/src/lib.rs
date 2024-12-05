@@ -1,5 +1,3 @@
-use strum_macros::EnumIter;
-use strum::IntoEnumIterator;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 use std::path::Path;
@@ -155,7 +153,7 @@ pub struct Coordinates {
     col: usize,
 }
 
-#[derive(Debug, EnumIter)]
+#[derive(Debug)]
 pub enum StepDirection {
     Forward,
     Backward,
