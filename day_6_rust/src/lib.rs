@@ -64,10 +64,10 @@ impl Map {
                 coords.row == 0
             },
             Direction::Down => {
-                coords.row > self.grid.len() - 1
+                coords.row >= self.grid.len() - 1
             },
             Direction::Right => {
-                coords.col > self.grid[0].len() -1
+                coords.col >= self.grid[0].len() -1
             },
             Direction::Left => {
                 coords.col == 0
@@ -83,8 +83,8 @@ impl Map {
         match self.peak(&coords, &dir) {
             Steps::End => (),
             Steps::Obstacle => {
-                dir.turn();
-                self.walk(coords, dir);
+                let new_dir = dir.turn();
+                self.walk(coords, new_dir);
             },
             Steps::Clear => {
                 let next_coords = coords.next(&dir);
